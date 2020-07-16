@@ -1,12 +1,12 @@
 alfa_center: {
-		port: 8010,
+		port: ++port,
 
 		base: base.alfa_center,
 		dest: base.alfa_center,
 
 		styles: {
-			src:    base.alfa_center + '/resources/' + preprocessor + '/main.*',
-			watch:    base.alfa_center + '/resources/' + preprocessor + '/*',
+			src:    base.alfa_center + '/resources/' + preprocessor + '/**/*',
+			//watch:  base.alfa_center + '/resources/' + preprocessor + '/**/*.'+preprocessor,
 			dest:   base.alfa_center + '/public/css',
 			output: 'main.min.css',
 		},
@@ -39,7 +39,7 @@ alfa_center: {
 			''].join('\n'),
 	},
 
-
+// Alfa Center
 // Local Server
 function alfa_center_browsersync() {
 	connect.server({
@@ -90,17 +90,12 @@ function alfa_center_cleanimg() {
 
 function alfa_center_watch() {
 	watch(projects.alfa_center.styles.src, alfa_center_styles);
-	// watch(projects.alfa_center.images.src + '/**/*.{' + imageswatch + '}', alfa_center_images);
+	watch(projects.alfa_center.images.src, alfa_center_cleanimg);
+	watch(projects.alfa_center.images.src, alfa_center_images);
 	watch(projects.alfa_center.code.src).on('change', browserSync.reload);
 	watch(projects.alfa_center.scripts.src, alfa_center_scripts);
 };
 
-// exports.alfa_center_browsersync = alfa_center_browsersync;
-// exports.assets      = series(alfa_center_cleanimg, alfa_center_styles, alfa_center_scripts, alfa_center_images);
-// exports.alfa_center_styles      = alfa_center_styles;
-// exports.alfa_center_scripts     = alfa_center_scripts;
-// exports.alfa_center_images = alfa_center_images;
-// exports.alfa_center_cleanimg    = alfa_center_cleanimg;
-exports.alfa_center = parallel(alfa_center_images, alfa_center_styles, alfa_center_scripts, alfa_center_browsersync, alfa_center_watch);
+exports.alfa_center = parallel(alfa_center_cleanimg, alfa_center_images, alfa_center_styles, alfa_center_scripts, alfa_center_browsersync, alfa_center_watch);
 
 /* alfa_center END */
