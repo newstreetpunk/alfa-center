@@ -1,3 +1,7 @@
+// npm install gulp-pngquant --save-dev
+
+pngquant = require('imagemin-pngquant')
+
 alfa_center: {
 		port: ++port,
 
@@ -80,7 +84,11 @@ function alfa_center_scripts() {
 function alfa_center_images() {
 	return src(projects.alfa_center.images.src)
 	.pipe(newer(projects.alfa_center.images.dest))
-	.pipe(imagemin())
+	.pipe(imagemin([
+            pngquant(),            
+        ],{
+            verbose: true
+        }))
 	.pipe(dest(projects.alfa_center.images.dest))
 }
 

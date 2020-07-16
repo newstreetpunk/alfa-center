@@ -16,7 +16,11 @@ body input:required:valid,
 body textarea:required:valid
 	color: green
 
+html
+	height: 100%
+
 body
+	height: 100%
 	font-size: 16px
 	position: relative
 	line-height: 1.6
@@ -25,6 +29,12 @@ body
 	font-weight: 300
 	min-width: 320px
 	overflow-x: hidden
+	display: flex
+	flex-direction: column
+
+main
+	min-height: calc(100% - 159px)
+	flex 1 0 auto
 
 img
 	display: block
@@ -39,6 +49,11 @@ a
 	&:hover
 		color: darken($accent, 10%)
 		text-decoration: none
+
+@import "sections/header"
+
+
+@import "sections/footer"
 	
 
 
