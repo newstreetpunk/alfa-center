@@ -1,9 +1,9 @@
 .banner
 	background-color: $gray
 	color: $white
-	min-height: 620px
 	position: relative
 	z-index: 1
+	padding-top: 110px
 	&:before
 		background-color: rgba($black, .7)
 		bottom: 0
@@ -14,6 +14,59 @@
 		right: 0
 		top: 0
 		z-index: -1
+	.caption
+		flex-direction: column
+		min-height: 600px
+		// height: 90vh
+	&__subtitle
+		padding: 0
+		margin: 0
+		list-style-type: none
+		li
+			padding-right: 20px
+			position: relative
+			text-transform: uppercase
+			font-size: 12px
+			letter-spacing: 1.8px
+			&:last-child()
+				padding-right: 0
+				&:after
+					display: none
+			&:after
+				content: '\2022'
+				display: block
+				position: absolute
+				right: 4px
+				top: -8.5px
+				font-size: 24px
+				color: $red
+	h4
+		color: $white
+		font-weight: bold
+		font-size: 20px
+		margin-bottom: 0px
+	&__block
+		margin-top: 50px
+		width: 100%
+	&__discount
+		width: 60%
+		&-list
+			padding: 0
+			list-style-type: none
+			li
+				padding-left: 45px
+				background-image: url(../img/tick.png)
+				background-repeat: no-repeat
+				background-position: 0 center
+				margin-bottom: 15px
+				span
+					font-size: 16px
+					opacity: .8
+
+h1
+	font-size: 50px
+	margin: 0
+	line-height: 1.4
 
 
 .parallax 
@@ -22,7 +75,7 @@
 	background-position: center 0
 	background-repeat: no-repeat
 	background-size: cover
-	height: 100%
+	// height: 100%
 	// +media-breakpoint-down(md)
 	// 	background-attachment: scroll
 
@@ -30,4 +83,4 @@
 	display: flex
 	justify-content: center
 	align-items: center
-	height: 100%
+	// height: 100%
