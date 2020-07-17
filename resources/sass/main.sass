@@ -3,7 +3,8 @@
 @import "vars"
 
 ::placeholder
-	color: #666
+	color: #ccc
+	font-weight: 300
 
 ::selection
 	background-color: $accent
@@ -11,11 +12,11 @@
 
 body input:focus:required:invalid,
 body textarea:focus:required:invalid
-	color: red
+	color: $red
 body input:required:valid,
 body textarea:required:valid
 	color: $accent
-	
+
 html
 	height: 100%
 
@@ -46,6 +47,59 @@ a
 	&:hover
 		color: darken($accent, 10%)
 		text-decoration: none
+
+form
+	label
+		display: block
+		color: $text
+		color: $title
+		margin-bottom: 3px
+	input
+		border: 1px solid #DCDCDC
+		border-radius: 3px
+		padding: 10px
+		color: $title
+		background-color: transparent
+		font-weight: 300
+		&:focus
+			border: 1px solid $gray
+			outline: none
+			background-color: transparent
+	small
+		font-style: italic
+		color: $text
+		text-align: center
+		display: block
+		font-size: 11px
+		a
+			color: $blue
+			&:hover
+				color: lighten($blue, 10%)
+				text-decoration: underline
+.btn
+	border: none
+	background-color: $accent
+	color: $white
+	padding: 6px
+	text-align: center
+	width: auto
+	box-shadow: 0 3px 0 darken($accent, 10%)
+	cursor: pointer
+	outline: none
+	transition: all .25s ease
+	&:hover
+		background-color: darken($accent, 3%)
+	&:focus, &:active
+		background-color: darken($accent, 10%)
+		border-left: none
+		border-right: none
+		border-top: none
+		border-bottom: none
+.l-btn
+	padding: 12px
+	font-weight: 500
+	font-size: 18px
+		
 
 @import "sections/header"
 @import "sections/banner"
