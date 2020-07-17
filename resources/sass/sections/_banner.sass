@@ -1,0 +1,33 @@
+.banner
+	background-color: $gray
+	color: $white
+	min-height: 620px
+	position: relative
+	z-index: 1
+	&:before
+		background-color: rgba($black, .7)
+		bottom: 0
+		content: ''
+		display: block
+		left: 0
+		position: absolute
+		right: 0
+		top: 0
+		z-index: -1
+
+
+.parallax 
+	position: relative
+	background-attachment: fixed
+	background-position: center 0
+	background-repeat: no-repeat
+	background-size: cover
+	height: 100%
+	// +media-breakpoint-down(md)
+	// 	background-attachment: scroll
+
+.caption
+	display: flex
+	justify-content: center
+	align-items: center
+	height: 100%

@@ -9,6 +9,17 @@
 	top: 30px
 	width: 100%
 	transition: all .3s ease
+	z-index: 1000
+	+media-breakpoint-down(md)
+		background-color: #222
+		top: 0 !important
+	+media-breakpoint-down(sm)
+		font-size: 16px
+		font-weight: 300
+	+media-breakpoint-down(xs)
+		padding: 15px 0
+		&__wrap
+			flex-direction: column-reverse
 	&-info
 		display: flex
 		align-items: center
@@ -26,5 +37,15 @@
 	&__phone
 		a
 			color: $white
+			+media-breakpoint-down(sm)
+				font-weight: 300
 			&:hover
 				color: $text
+	&__address
+		+media-breakpoint-down(xs)
+			font-size: 13px
+			margin-bottom: 10px
+	+media-breakpoint-down(md)
+		top: 0
+		.container
+			max-width: 95%
