@@ -14,13 +14,9 @@ body textarea:focus:required:invalid
 	color: red
 body input:required:valid,
 body textarea:required:valid
-	color: green
-
-html
-	height: 100%
+	color: $accent
 
 body
-	height: 100%
 	font-size: 16px
 	position: relative
 	line-height: 1.6
@@ -29,17 +25,14 @@ body
 	font-weight: 300
 	min-width: 320px
 	overflow-x: hidden
-	display: flex
-	flex-direction: column
-
-main
-	min-height: calc(100% - 159px)
-	flex 1 0 auto
 
 img
 	display: block
 	max-width: 100%
 	height: auto
+
+h2, h3, h4, h5, h6
+	color: $title
 
 a
 	color: $accent
