@@ -3,39 +3,43 @@ jQuery(function($) {
 	function customResize(){
 		if ( $(window).width() > 992 ) {
 			h_hght = 30;
+			$('#header').css({
+				'top': h_hght,
+				'background-color': 'transparent'
+			});
 		}else{
 			h_hght = 0;
 		}
+		// липкая шапка + background
+		var h_mrg = 0;
+		var elem = $('#header');
+		var top = $(this).scrollTop();
+
+		if(top > h_hght){
+			elem.css('top', h_mrg);
+		}           
+
+		$(window).scroll(function(){
+			top = $(this).scrollTop();
+
+			if (top+h_mrg < h_hght) {
+				elem.css({
+					'top': h_hght-top,
+					'background-color': 'transparent'
+				});
+			} else {
+				elem.css({
+					'top': h_mrg,
+					'background-color': '#222'
+				});
+			}
+		});
 	}customResize();
 
 	$(window).resize(function(){
 		customResize();
 	});
 	
-	// липкая шапка + background
-	var h_mrg = 0;
-	var elem = $('#header');
-	var top = $(this).scrollTop();
-
-	if(top > h_hght){
-		elem.css('top', h_mrg);
-	}           
-
-	$(window).scroll(function(){
-		top = $(this).scrollTop();
-
-		if (top+h_mrg < h_hght) {
-			elem.css({
-				'top': h_hght-top,
-				'background-color': 'transparent'
-			});
-		} else {
-			elem.css({
-				'top': h_mrg,
-				'background-color': '#222'
-			});
-		}
-	});
 
 	// 
 
