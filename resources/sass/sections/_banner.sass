@@ -7,6 +7,17 @@
 	height: 100vh
 	padding-top: 10%
 	padding-bottom: 5%
+	+media-breakpoint-down(md)
+		// margin-top: 82px
+		padding-top: 20px
+		padding-bottom: 0
+		height: auto
+	+media-breakpoint-down(sm)
+		margin-top: 75px
+		.container
+			max-width: 95%
+			+media-breakpoint-down(xs)
+				max-width: 100%
 	&:before
 		background-color: rgba($black, .7)
 		bottom: 0
@@ -19,19 +30,27 @@
 		z-index: -1
 	.caption
 		flex-direction: column
-		// min-height: 700px
-		// padding-top: 10%
-		// padding-bottom: 5%
+		+media-breakpoint-down(md)
+			justify-content: flex-start
 	&__subtitle
 		padding: 0
 		margin: 0
 		list-style-type: none
+		+media-breakpoint-down(sm)
+			flex-wrap: wrap
+			justify-content: center
 		li
 			padding-right: 20px
 			position: relative
 			text-transform: uppercase
 			font-size: 12px
 			letter-spacing: 1.8px
+			+media-breakpoint-down(md)
+				font-size: 10px
+				letter-spacing: 1px
+			+media-breakpoint-down(sm)
+				padding-right: 0
+				margin: 0 10px 4px
 			&:last-child()
 				padding-right: 0
 				&:after
@@ -44,6 +63,10 @@
 				top: -8.5px
 				font-size: 24px
 				color: $red
+				+media-breakpoint-down(md)
+					top: -11px
+				+media-breakpoint-down(sm)
+					display: none
 	h4
 		color: $white
 		font-weight: bold
@@ -52,6 +75,10 @@
 	&__block
 		margin-top: 50px
 		width: 100%
+		+media-breakpoint-down(md)
+			flex-direction: column
+		+media-breakpoint-down(sm)
+			margin-top: 30px
 	&__discount
 		// width: 60%
 		&-list
@@ -72,6 +99,8 @@
 		padding: 30px 20px
 		background-color: $white
 		box-shadow: 0 0 25px rgba(0, 0, 0, 0.4)
+		+media-breakpoint-down(md)
+			margin-bottom: -30px
 		h4
 			color: $title
 			text-transform: uppercase
@@ -86,6 +115,13 @@ h1
 	font-size: 50px
 	margin: 0
 	line-height: 1.4
+	+media-breakpoint-down(sm)
+		font-size: 34px
+		text-align: center
+	+media-breakpoint-down(xs)
+		font-size: 25px
+		margin-bottom: 15px
+
 
 
 .parallax 
