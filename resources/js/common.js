@@ -1,3 +1,13 @@
+$(window).on('load', function() {
+
+	$(".loader_inner").fadeOut();
+	$(".loader").delay(400).fadeOut("slow");
+
+	// $(".top_text h1").animated("fadeInDown", "fadeOutUp");
+	// $(".top_text p").animated("fadeInUp", "fadeOutDown");
+
+});
+
 jQuery(function($) {
 
 	function customResize(){
@@ -62,7 +72,7 @@ jQuery(function($) {
   // Attach scroll event to window. Calculate the scroll ratio of each element
   // and change the image position with that ratio.
   // https://codepen.io/lemagus/pen/RWxEYz
-  $(window).scroll(function() {
+	$(window).scroll(function() {
 	var scrolled = $(window).scrollTop()
 	$('.parallax').each(function(index, element) {
 		var initY = $(this).offset().top
@@ -70,30 +80,26 @@ jQuery(function($) {
 		var endY  = initY + $(this).height()
 
 	  // Check if the element is in the viewport.
-	  var visible = isInViewport(this)
-	  if(visible) {
+	var visible = isInViewport(this)
+		if(visible) {
 		var diff = scrolled - initY
 		var ratio = Math.round((diff / height) * 100)
 		$(this).css('background-position','center ' + parseInt(-(ratio * 1.1)) + 'px')
-	  }
-  })
-  })
+	  	}
+		});
+	});
 
-});
+	function isInViewport(node) {
+	var rect = node.getBoundingClientRect()
+	return (
+		(rect.height > 0 || rect.width > 0) &&
+		rect.bottom >= 0 &&
+		rect.right >= 0 &&
+		rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+		rect.left <= (window.innerWidth || document.documentElement.clientWidth)
+		)
+	}
 
-// Check if the element is in the viewport.
-// http://www.hnldesign.nl/work/code/check-if-element-is-visible/
-function isInViewport(node) {
-  // Am I visible? Height and Width are not explicitly necessary in visibility
-  // detection, the bottom, right, top and left are the essential checks. If an
-  // image is 0x0, it is technically not visible, so it should not be marked as
-  // such. That is why either width or height have to be > 0.
-  var rect = node.getBoundingClientRect()
-  return (
-	(rect.height > 0 || rect.width > 0) &&
-	rect.bottom >= 0 &&
-	rect.right >= 0 &&
-	rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-	rect.left <= (window.innerWidth || document.documentElement.clientWidth)
-  )
-}
+
+
+}); //Document.ready end
