@@ -1,5 +1,4 @@
 .services
-	min-height: 550px
 	z-index: 1
 	svg
 		position: absolute
@@ -8,8 +7,12 @@
 		width: 100%
 		height: 100%
 		z-index: -1
+		+media-breakpoint-down(xs)
+			top: 80px
 	&-block
-		padding-top: 4%
+		padding-top: 50px
+		+media-breakpoint-down(xs)
+			padding-top: 20px
 	&-item
 		background-color: $white
 		border-radius: 4px
@@ -19,8 +22,14 @@
 		box-shadow: 0 0 30px rgba($black, .3)
 		overflow: hidden
 		transition: all .3s ease-in-out
+		+media-breakpoint-down(sm)
+			padding: 12px 12px 0
+		+media-breakpoint-down(xs)
+			width: 100% !important
 		&.services-item__small
 			width: 38%
+			+media-breakpoint-down(md)
+				width: 42%
 		&:hover
 			box-shadow: 0 0 12px rgba($black, .3)
 			img
@@ -39,9 +48,17 @@
 			padding: 8px 0
 			text-align: center
 			transition: all .2s ease-in-out
+			+media-breakpoint-down(md)
+				font-size: 16px
+			+media-breakpoint-down(sm)
+				font-size: 14px
 		&__thumb
 			display: block
 			overflow: hidden
 			width: 100%
 			height: 180px
+			+media-breakpoint-down(md)
+				height: 120px
+			+media-breakpoint-down(sm)
+				height: 87px
 
