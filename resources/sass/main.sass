@@ -12,10 +12,10 @@
 
 body input:focus:required:invalid,
 body textarea:focus:required:invalid
-	color: $red
+	border-color: $red
 body input:required:valid,
 body textarea:required:valid
-	color: $accent
+	border-color: $accent
 
 html
 	height: 100%
@@ -52,9 +52,9 @@ a
 form
 	label
 		display: block
-		color: $text
 		color: $title
-		margin-bottom: 3px
+		margin-bottom: 4px
+		font-weight: 500
 	input
 		border: 1px solid #DCDCDC
 		border-radius: 3px
@@ -133,16 +133,26 @@ section
 	h2
 		font-size: 40px
 		text-align: center
+		margin-bottom: 0
 		+media-breakpoint-down(xs)
 			padding: 0 15px
-			font-size: 22px
+			font-size: 24px
+	.sect-subtitle
+		font-size: 22px
+		display: block
+		padding: 0 15px
+		text-align: center
+		margin-bottom: 30px
+		+media-breakpoint-down(xs)
+			font-size: 18px
 		
 
 @import "sections/header"
 @import "sections/banner"
 @import "sections/brands"
 @import "sections/services"
-@import "sections/callback-secton"
+@import "sections/callback-section"
+@import "sections/advantages"
 
 
 @import "sections/footer"
