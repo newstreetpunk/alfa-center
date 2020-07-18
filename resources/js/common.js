@@ -107,6 +107,38 @@ jQuery(function($) {
 		)
 	}
 
+	// MODALS
+		
+
+	$('.modal-link').on('click', function(){
+		th    = $(this),
+		id    = th.attr('href'),
+		title = th.find('h4').text();
+
+		servArray = th.data('serv'),
+		servArrayOut = servArray.split(',');
+
+		$(id).find('h2').text(title);
+		$('.services-modal__item').remove();
+
+		$.each(servArrayOut, function(k, v){
+
+			out = '<div class="services-modal__item">'+ v +'</div>';
+			$(id).find('.services-modal__list').append(out);
+		}); 
+
+		$.magnificPopup.open({
+			items: {
+				src: id,
+				type: 'inline',
+				fixedContentPos: true,
+				preloader: false,
+			}
+		});
+
+		return false;
+	});
+
 
 
 }); //Document.ready end
