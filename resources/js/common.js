@@ -44,6 +44,13 @@ jQuery(function($) {
 				});
 			}
 		});
+
+		// SVG width & height
+		var block = $('#services'),
+			height = block.height(),
+			winwidth = $(window).width();
+		block.find('svg polygon').attr('points', '0,0 '+ (winwidth / 2)+','+ height+' '+winwidth+', 0');
+
 	}customResize();
 
 	$(window).resize(function(){
