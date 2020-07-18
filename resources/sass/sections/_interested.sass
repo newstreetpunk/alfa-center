@@ -1,0 +1,20 @@
+.interested
+	padding: 80px 0
+	z-index: 1
+	color: rgba($white, .8)
+	background-size: 100%
+	background-position: center
+	+media-breakpoint-down(sm)
+		background-size: cover
+	&:before
+		background-color: rgba($black, .7)
+		bottom: 0
+		content: ''
+		display: block
+		left: 0
+		position: absolute
+		right: 0
+		top: 0
+		z-index: -1
+	h2
+		color: $white
