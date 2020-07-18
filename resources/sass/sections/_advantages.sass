@@ -1,5 +1,49 @@
 .advantages
 	background-color: $light-gray
 	padding-top: 155px
+	padding-left: 1%
+	padding-right: 1%
 	+media-breakpoint-down(sm)
 		padding-top: 220px
+	&-block
+		max-width: 1600px
+		width: 100%
+		margin: 0 auto
+	&-item
+		width: 23%
+		text-align: center
+		margin: 0 1% 20px
+		+media-breakpoint-down(sm)
+			width: 48%
+		+media-breakpoint-down(xs)
+			width: 100%
+			margin: 0
+			margin-bottom: 20px
+		&__icon
+			width: 120px
+			height: 120px
+			border-radius: 50%
+			background-color: rgba($text, .5)
+			margin: 0 auto 20px
+			display: flex
+			align-items: center
+			justify-content: center
+			transition: all .5s
+			img
+				width: 60px
+				height: auto
+		h4
+			text-transform: uppercase
+			font-size: 16px
+			+media-breakpoint-down(md)
+				font-weight: 300
+				font-size: 14px
+			+media-breakpoint-down(sm)
+				br
+					display: none
+		&:hover
+			.advantages-item__icon
+				background-color: $accent
+			img
+				filter: invert(70%)
+			
