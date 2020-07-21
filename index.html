@@ -271,7 +271,7 @@
 			<h2>Заинтересовало?</h2>
 			<span class="sect-subtitle">Запишись на сервис прямо сейчас и наш менеджер свяжется с тобой и объяснит дальнейшие действия.</span>
 			<div class="btn-wrap">
-				<a href="#" class="btn l-btn">Отправить заявку</a>
+				<a href="#services_modal" class="btn l-btn modal-link">Отправить заявку</a>
 			</div>
 		</section>
 		<!-- /#interested.interested -->
@@ -296,16 +296,47 @@
 
 	<div class="modal services-modal mfp-hide white-popup-block" id="services_modal">
 		<h2></h2>
-		<div class="services-modal__list d-flex justify-content-between">
-			<!-- <div class="services-modal__item">123</div>
-			<div class="services-modal__item">456</div>
-			<div class="services-modal__item">6789</div> -->
-		</div>
+		<span class="form-subtitle">Хотите узнать все подробности об услуге? Оставьте свои данные и наш менеджер свяжется с Вами в ближайшее время</span>
+		<form>
+
+			<div class="form-group">
+				<label>Имя</label>
+				<input type="text" name="first-name" placeholder="Ваше имя">
+			</div>
+			<!-- /.form-group -->
+			<div class="form-group">
+				<label>Номер телефона</label>
+				<input type="tel" name="your-phone" placeholder="Введите номер телефона" required>
+			</div>
+			<!-- /.form-group -->
+			<input type="submit" class="btn" value="Отправить">
+
+			<small>При отправке заявки вы соглашаетесь на<br> <a href="#">использование ваших персональных данных</a></small>
+
+		</form>
 	</div>
 
 	<!-- MODALS END-->
 
     <script src="js/scripts.min.js"></script>
+
+    <script>
+    	function modalServ(i){
+    		let id = i.getAttribute('href');
+    		let str = id.replace('#', '');
+    		let title = i.previousElementSibling.innerText;
+    		let modal = document.getElementById(str);
+    		modal.querySelector('h2').innerText = title;
+    		$.magnificPopup.open({
+    			items: {
+    				src: '#services_modal',
+    				type: 'inline',
+    				fixedContentPos: true,
+    				preloader: false
+    			}
+    		});
+    	}
+    </script>
 
 </body>
 

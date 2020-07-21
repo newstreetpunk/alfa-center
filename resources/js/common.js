@@ -1,7 +1,5 @@
 jQuery(function($) {
 
-	$('.sub-services').hide();
-
 	function customResize(){
 		if ( $(window).width() > 992 ) {
 			h_hght = 30;
@@ -116,52 +114,66 @@ jQuery(function($) {
 		servArray    = th.data('serv'),
 		servArrayOut = servArray.split(',');
 
-			if ( th.hasClass('active') ) {
-				th.removeClass('active');
-				$('.sub-services').slideUp();
+		if ( th.hasClass('active') ) {
+			th.removeClass('active');
+			$('.sub-services').slideUp();
+			$('.sub-services__item').remove();
+		}else{
+			$(this).closest('.services').find('.loader').show();
+			$('.services-item').removeClass('active');
+
+			setTimeout(function(){
 				$('.sub-services__item').remove();
-			}else{
-				$(this).closest('.services').find('.loader').show();
-				$('.services-item').removeClass('active');
 
-				setTimeout(function(){
-					$('.sub-services__item').remove();
+				$.each(servArrayOut, function(k, v){
 
-					$.each(servArrayOut, function(k, v){
+					out = '\
+					<div class="sub-services__item">\
+					<div class="sub-services__item--img" style="background-image: url(img/'+ dir +'/'+ k +'.jpg);"></div>\
+					<div class="sub-services__item--info">\
+					<h5>'+ v +'</h5>\
+					<a href="#services_modal" class="btn modal-link" onclick="modalServ(this); return false;">Узнать цену</a>\
+					</div>\
+					</div>\
+					';
+					$('.sub-services').append(out);
 
-						out = '\
-						<div class="sub-services__item">\
-						<div class="sub-services__item--img" style="background-image: url(img/'+ dir +'/'+ k +'.jpg);"></div>\
-						<div class="sub-services__item--info">\
-						<h5>'+ v +'</h5>\
-						<a href="#" class="btn">Узнать цену</a>\
-						</div>\
-						</div>\
-						';
-						$('.sub-services').append(out);
-
-					});
+				});
 
 				$('.sub-services').slideDown();
 				$('.services .loader').hide();
-
-				}, 1000)
-
 				th.addClass('active');
-			}
 
-		// $.magnificPopup.open({
-		// 	items: {
-		// 		src: id,
-		// 		type: 'inline',
-		// 		fixedContentPos: true,
-		// 		preloader: false,
-		// 	}
-		// });	
+			}, 1000)
+		}
 
 		return false;
+
 	});
 
+	// MODALS
+
+	// $('.sub-services').on('click', $('.modal-link'), function(e){
+	// 	// var th = $(this),
+	// 	// var	id = $(this).find('.modal-link').attr('href');
+	// 	// var	title = this.prev().text();
+
+	// 	console.log(e.target.text());
+	// 	// console.log(this.attr('href'));
+	// 	// console.log(title);
+
+	// 	// $(id).find('h2').text(title);
+
+	// 	$.magnificPopup.open({
+	// 		items: {
+	// 			src: '#services_modal',
+	// 			type: 'inline',
+	// 			fixedContentPos: true,
+	// 			preloader: false
+	// 		}
+	// 	});
+	// 	return false;
+	// });
 
 
 }); //Document.ready end
