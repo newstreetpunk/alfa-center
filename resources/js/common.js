@@ -1,5 +1,7 @@
 jQuery(function($) {
 
+	$('.sub-services').hide();
+
 	function customResize(){
 		if ( $(window).width() > 992 ) {
 			h_hght = 30;
@@ -16,7 +18,10 @@ jQuery(function($) {
 		var top = $(this).scrollTop();
 
 		if(top > h_hght){
-			elem.css('top', h_mrg);
+			elem.css({
+				'top': h_mrg,
+				'background-color': '#222'
+			});
 		}           
 
 		$(window).scroll(function(){
@@ -96,35 +101,51 @@ jQuery(function($) {
 		rect.left <= (window.innerWidth || document.documentElement.clientWidth)
 		)
 	}
+	
+	// Услуги 
 
-	// MODALS
-		
+	$('.services-item').on('click', function(){
 
-	$('.modal-link').on('click', function(){
-		th    = $(this),
-		id    = th.attr('href'),
-		title = th.find('h4').text();
+		$('.sub-services__item').remove();
 
-		servArray = th.data('serv'),
+		th           = $(this),
+		id           = th.attr('href'),
+		servArray    = th.data('serv'),
 		servArrayOut = servArray.split(',');
-
-		$(id).find('h2').text(title);
-		$('.services-modal__item').remove();
 
 		$.each(servArrayOut, function(k, v){
 
-			out = '<div class="services-modal__item">'+ v +'</div>';
-			$(id).find('.services-modal__list').append(out);
-		}); 
+			out = '\
+			<div class="sub-services__item">\
+				<div class="sub-services__item--img" style="background-image: url(img/'+id+'/'+k+'.jpg);"></div>\
+				<div class="sub-services__item--info">\
+					<h5>'+v+'</h5>\
+					<a href="#" class="btn">Узнать цену</a>\
+				</div>\
+			</div>\
+			';
+			$('.sub-services').append(out);
 
-		$.magnificPopup.open({
-			items: {
-				src: id,
-				type: 'inline',
-				fixedContentPos: true,
-				preloader: false,
-			}
 		});
+
+		if ( th.hasClass('active') ) {
+			th.removeClass('active');
+			$('.sub-services').slideUp(100);
+		}else{
+			$('.sub-services').slideUp(100);
+			$('.services-item').removeClass('active');
+			th.addClass('active');
+			$('.sub-services').slideDown(100);
+		}
+
+		// $.magnificPopup.open({
+		// 	items: {
+		// 		src: id,
+		// 		type: 'inline',
+		// 		fixedContentPos: true,
+		// 		preloader: false,
+		// 	}
+		// });
 
 		return false;
 	});
