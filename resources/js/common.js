@@ -104,6 +104,19 @@ jQuery(function($) {
 		rect.left <= (window.innerWidth || document.documentElement.clientWidth)
 		)
 	}
+
+	function itemPos(item, elem){
+		let itemTop    = item.position().top;
+		let itemHeight = item.height(); 
+
+		if ( $(window).width() > 768 ) {
+			elemPos = 0;
+		}else{
+			elemPos    = itemTop + itemHeight + 15;
+		}
+
+		elem.css('top', elemPos);		
+	}
 	
 	// Услуги 
 
@@ -112,7 +125,10 @@ jQuery(function($) {
 		th           = $(this),
 		dir          = th.attr('href'),
 		servArray    = th.data('serv'),
-		servArrayOut = servArray.split(',');
+		servArrayOut = servArray.split(','),
+		elem         = $('.sub-services');
+
+		// itemPos(th, elem);
 
 		if ( th.hasClass('active') ) {
 			th.removeClass('active');
@@ -170,5 +186,7 @@ jQuery(function($) {
 		return false;
 
 	});
+
+	$('.lazyload').lazyload();
 
 }); //Document.ready end
