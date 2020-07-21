@@ -111,37 +111,44 @@ jQuery(function($) {
 
 	$('.services-item').on('click', function(){
 
-		$('.sub-services__item').remove();
-
 		th           = $(this),
 		dir          = th.attr('href'),
 		servArray    = th.data('serv'),
 		servArrayOut = servArray.split(',');
 
-		$.each(servArrayOut, function(k, v){
+			if ( th.hasClass('active') ) {
+				th.removeClass('active');
+				$('.sub-services').slideUp();
+				$('.sub-services__item').remove();
+			}else{
+				$(this).closest('.services').find('.loader').show();
+				$('.services-item').removeClass('active');
 
-			out = '\
-			<div class="sub-services__item">\
-				<div class="sub-services__item--img" style="background-image: url(img/'+ dir +'/'+ k +'.jpg);"></div>\
-				<div class="sub-services__item--info">\
-					<h5>'+ v +'</h5>\
-					<a href="#" class="btn">Узнать цену</a>\
-				</div>\
-			</div>\
-			';
-			$('.sub-services').append(out);
+				setTimeout(function(){
+					$('.sub-services__item').remove();
 
-		});
+					$.each(servArrayOut, function(k, v){
 
-		if ( th.hasClass('active') ) {
-			th.removeClass('active');
-			$('.sub-services').slideUp();
-		}else{
-			$('.sub-services').slideUp();
-			$('.services-item').removeClass('active');
-			th.addClass('active');
-			$('.sub-services').slideDown();
-		}
+						out = '\
+						<div class="sub-services__item">\
+						<div class="sub-services__item--img" style="background-image: url(img/'+ dir +'/'+ k +'.jpg);"></div>\
+						<div class="sub-services__item--info">\
+						<h5>'+ v +'</h5>\
+						<a href="#" class="btn">Узнать цену</a>\
+						</div>\
+						</div>\
+						';
+						$('.sub-services').append(out);
+
+					});
+
+				$('.sub-services').slideDown();
+				$('.services .loader').hide();
+
+				}, 1000)
+
+				th.addClass('active');
+			}
 
 		// $.magnificPopup.open({
 		// 	items: {
