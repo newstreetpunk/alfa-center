@@ -1,13 +1,3 @@
-$(window).on('load', function() {
-
-	$(".loader_inner").fadeOut();
-	$(".loader").delay(400).fadeOut("slow");
-
-	// $(".top_text h1").animated("fadeInDown", "fadeOutUp");
-	// $(".top_text p").animated("fadeInUp", "fadeOutDown");
-
-});
-
 jQuery(function($) {
 
 	function customResize(){

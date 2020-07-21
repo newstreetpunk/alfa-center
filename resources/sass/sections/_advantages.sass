@@ -3,6 +3,7 @@
 	padding-top: 155px
 	padding-left: 1%
 	padding-right: 1%
+	padding-bottom: 20px
 	+media-breakpoint-down(sm)
 		padding-top: 220px
 		padding-left: 20px
@@ -12,9 +13,10 @@
 		width: 100%
 		margin: 50px auto 0
 	&-item
-		width: 23%
-		text-align: center
-		margin: 0 1% 20px
+		display: flex
+		align-items: center
+		width: 40%
+		margin: 0 1% 40px
 		+media-breakpoint-down(sm)
 			width: 48%
 		+media-breakpoint-down(xs)
@@ -22,29 +24,19 @@
 			margin: 0
 			margin-bottom: 20px
 		&__icon
-			width: 120px
-			height: 120px
-			border-radius: 50%
-			background-color: rgba($text, .5)
-			margin: 0 auto 20px
-			display: flex
-			align-items: center
-			justify-content: center
-			transition: all .5s
+			width: 100px !important
+			flex-shrink: 0
+			margin-right: 10px
+			+media-breakpoint-down(xs)
+				width: 80px !important
 			img
-				width: 60px
-				height: auto
+				margin: 0 auto
 		h4
 			text-transform: uppercase
-			font-size: 16px
+			font-size: 20px
 			+media-breakpoint-down(md)
 				font-size: 14px
 			+media-breakpoint-down(sm)
 				br
 					display: none
-		&:hover
-			.advantages-item__icon
-				background-color: $accent
-			img
-				filter: invert(70%)
 			
