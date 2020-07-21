@@ -153,27 +153,22 @@ jQuery(function($) {
 
 	// MODALS
 
-	// $('.sub-services').on('click', $('.modal-link'), function(e){
-	// 	// var th = $(this),
-	// 	// var	id = $(this).find('.modal-link').attr('href');
-	// 	// var	title = this.prev().text();
+	$('.modal-link').click(function(){
 
-	// 	console.log(e.target.text());
-	// 	// console.log(this.attr('href'));
-	// 	// console.log(title);
+		let id = $(this).attr('href');
 
-	// 	// $(id).find('h2').text(title);
+		$.magnificPopup.open({
 
-	// 	$.magnificPopup.open({
-	// 		items: {
-	// 			src: '#services_modal',
-	// 			type: 'inline',
-	// 			fixedContentPos: true,
-	// 			preloader: false
-	// 		}
-	// 	});
-	// 	return false;
-	// });
+			items: {
+				src: id,
+				type: 'inline',
+				fixedContentPos: true,
+				preloader: false
+			}
+		});
 
+		return false;
+
+	});
 
 }); //Document.ready end
