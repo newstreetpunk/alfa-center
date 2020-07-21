@@ -40,16 +40,21 @@ jQuery(function($) {
 			}
 		});
 
-		// SVG width & height
+	}customResize();
+
+	// SVG width & height
+	function svgDetect(){
+
 		var block = $('#services'),
 			height = block.height(),
 			winwidth = $(window).width();
 		block.find('svg polygon').attr('points', '0,0 '+ (winwidth / 2)+','+ height+' '+winwidth+', 0');
 
-	}customResize();
+	}svgDetect();
 
 	$(window).resize(function(){
 		customResize();
+		svgDetect();
 	});
 	
 
@@ -109,7 +114,7 @@ jQuery(function($) {
 		$('.sub-services__item').remove();
 
 		th           = $(this),
-		id           = th.attr('href'),
+		dir          = th.attr('href'),
 		servArray    = th.data('serv'),
 		servArrayOut = servArray.split(',');
 
@@ -117,9 +122,9 @@ jQuery(function($) {
 
 			out = '\
 			<div class="sub-services__item">\
-				<div class="sub-services__item--img" style="background-image: url(img/'+id+'/'+k+'.jpg);"></div>\
+				<div class="sub-services__item--img" style="background-image: url(img/'+ dir +'/'+ k +'.jpg);"></div>\
 				<div class="sub-services__item--info">\
-					<h5>'+v+'</h5>\
+					<h5>'+ v +'</h5>\
 					<a href="#" class="btn">Узнать цену</a>\
 				</div>\
 			</div>\
@@ -130,12 +135,12 @@ jQuery(function($) {
 
 		if ( th.hasClass('active') ) {
 			th.removeClass('active');
-			$('.sub-services').slideUp(100);
+			$('.sub-services').slideUp();
 		}else{
-			$('.sub-services').slideUp(100);
+			$('.sub-services').slideUp();
 			$('.services-item').removeClass('active');
 			th.addClass('active');
-			$('.sub-services').slideDown(100);
+			$('.sub-services').slideDown();
 		}
 
 		// $.magnificPopup.open({
@@ -145,7 +150,7 @@ jQuery(function($) {
 		// 		fixedContentPos: true,
 		// 		preloader: false,
 		// 	}
-		// });
+		// });	
 
 		return false;
 	});
