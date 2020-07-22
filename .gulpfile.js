@@ -17,7 +17,7 @@ alfa_center: {
 
 		scripts: {
 			src: [
-				'node_modules/jquery/dist/jquery.min.js',
+				//'node_modules/jquery/dist/jquery.min.js',
 				'node_modules/slick-carousel/slick/slick.min.js',
 				base.alfa_center + '/resources/js/common.js',
 			],
@@ -98,12 +98,12 @@ function alfa_center_cleanimg() {
 
 function alfa_center_watch() {
 	watch(projects.alfa_center.styles.src, alfa_center_styles);
-	watch(projects.alfa_center.images.src, alfa_center_cleanimg);
+	watch(projects.alfa_center.scripts.src, alfa_center_scripts);
+	//watch(projects.alfa_center.images.src, alfa_center_cleanimg);
 	watch(projects.alfa_center.images.src, alfa_center_images);
 	watch(projects.alfa_center.code.src).on('change', browserSync.reload);
-	watch(projects.alfa_center.scripts.src, alfa_center_scripts);
 };
 
-exports.alfa_center = parallel(alfa_center_cleanimg, alfa_center_images, alfa_center_styles, alfa_center_scripts, alfa_center_browsersync, alfa_center_watch);
+exports.alfa_center = parallel(alfa_center_images, alfa_center_styles, alfa_center_scripts, alfa_center_browsersync, alfa_center_watch);
 
 /* alfa_center END */
