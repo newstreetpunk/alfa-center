@@ -62,6 +62,14 @@ jQuery(function($) {
 
 	}svgDetect();
 
+	function servScroll(){
+		if ( $(window).width() < 768 ) {
+			$('html, body').animate({
+				scrollTop: $(".sub-services").offset().top - 80  // класс объекта к которому приезжаем
+			}, 600);
+		}
+	}
+
 	$(window).resize(function(){
 		customResize();
 		svgDetect();
@@ -102,7 +110,7 @@ jQuery(function($) {
 		var diff = scrolled - initY
 		var ratio = Math.round((diff / height) * 100)
 		$(this).css('background-position','center ' + parseInt(-(ratio * 1.1)) + 'px')
-	  	}
+		}
 		});
 	});
 
@@ -170,6 +178,7 @@ jQuery(function($) {
 
 				$('.sub-services').slideDown();
 				$('.sub-services__item').animated('fadeInUp', 'fadeInUp');
+				servScroll();
 				$('.services .loader').hide();
 				th.addClass('active');
 
