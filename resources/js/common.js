@@ -165,7 +165,7 @@ jQuery(function($) {
 
 					out = '\
 					<div class="sub-services__item">\
-					<div class="sub-services__item--img" style="background-image: url(img/'+ dir +'/'+ k +'.jpg);"></div>\
+					<div class="sub-services__item--img lazyload" style="background-image: url(img/ajax-loader.gif);" data-src-background="img/'+ dir +'/'+ k +'.jpg"></div>\
 					<div class="sub-services__item--info">\
 					<h5>'+ v +'</h5>\
 					<a href="#services_modal" class="btn modal-link" onclick="modalServ(this); return false;">Узнать цену</a>\
@@ -178,6 +178,7 @@ jQuery(function($) {
 
 				$('.sub-services').slideDown();
 				$('.sub-services__item').animated('fadeInUp', 'fadeInUp');
+				$('.lazyload').lazyload();
 				servScroll();
 				$('.services .loader').hide();
 				th.addClass('active');
