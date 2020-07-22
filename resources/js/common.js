@@ -124,19 +124,6 @@ jQuery(function($) {
 		rect.left <= (window.innerWidth || document.documentElement.clientWidth)
 		)
 	}
-
-	function itemPos(item, elem){
-		let itemTop    = item.position().top;
-		let itemHeight = item.height(); 
-
-		if ( $(window).width() > 768 ) {
-			elemPos = 0;
-		}else{
-			elemPos    = itemTop + itemHeight + 15;
-		}
-
-		elem.css('top', elemPos);		
-	}
 	
 	// Услуги 
 
@@ -210,6 +197,26 @@ jQuery(function($) {
 		return false;
 
 	});
+
+	$('a[href="#privacy-policy"]').on('click', function(){
+
+		$('.overlay').show();
+		$('.privacy-wrap').show();
+		$('html').css({
+			'margin-right': '17px',
+			'overflow': 'hidden'
+		});
+
+		return false;
+	});
+
+	$('.overlay, .privacy-close').on('click', function(){
+		$('.overlay').hide();
+		$('.privacy-wrap').hide();
+		$('html').removeAttr('style');
+	});
+
+	// LazyLoad
 
 	$('.lazyload').lazyload();
 
