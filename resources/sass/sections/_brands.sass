@@ -1,9 +1,11 @@
 .brands
 	opacity: 0
 	animation-delay: .2s
+	+media-breakpoint-down(sm)
+		padding-top: 60px
 	+media-breakpoint-down(xs)
 		justify-content: space-between !important
-		padding-top: 40px
+		// padding-top: 40px
 	&-img
 		max-width: 130px
 		display: flex
