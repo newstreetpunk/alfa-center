@@ -1,19 +1,16 @@
 jQuery(function($) {
 
-	$('h1').animated('fadeInDown', 'fadeOutUp');
+	$('h1').animated('fadeInDown', 'fadeInDown');
 
 	$('.banner__subtitle, section h2, .services-block, .callback-section, section .sect-subtitle, .btn-wrap, .brands')
-	.animated('fadeInUp', 'fadeOutDown');
+	.animated('fadeInUp', 'fadeInUp');
 
-	$('.banner__discount-list, .advantages-item:nth-child(odd)')
-	.animated('fadeInLeft', 'fadeOutRight');
+	$('.header__phone, .banner__discount-list, .advantages-item:nth-child(odd)')
+	.animated('fadeInLeft', 'fadeInLeft');
 
-	$('.header__phone').animated('fadeInLeft', 'fadeInLeft');
+	$('.header__address, .banner__form, .advantages-item:nth-child(even)')
+	.animated('fadeInRight', 'fadeInRight');
 
-	$('.banner__form, .advantages-item:nth-child(even)')
-	.animated('fadeInRight', 'fadeOutLeft');
-
-	$('.header__address').animated('fadeInRight', 'fadeInRight');
 
 	function customResize(){
 		if ( $(window).width() > 992 ) {
@@ -172,6 +169,7 @@ jQuery(function($) {
 				});
 
 				$('.sub-services').slideDown();
+				$('.sub-services__item').animated('fadeInUp', 'fadeInUp');
 				$('.services .loader').hide();
 				th.addClass('active');
 
