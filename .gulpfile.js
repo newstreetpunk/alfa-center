@@ -17,8 +17,11 @@ alfa_center: {
 
 		scripts: {
 			src: [
-				//'node_modules/jquery/dist/jquery.min.js',
-				'node_modules/slick-carousel/slick/slick.min.js',
+				//'node_modules/jquery/dist/jquery.min.js',				
+				base.alfa_center + '/resources/libs/Magnific-Popup-master/jquery.magnific-popup.js',
+				base.alfa_center + '/resources/libs/lazyload/lazyload.js',
+				base.alfa_center + '/resources/libs/waypoints.min.js',
+				base.alfa_center + '/resources/libs/animate/animate-css.js',
 				base.alfa_center + '/resources/js/common.js',
 			],
 			dest:       base.alfa_center + '/public/js',
