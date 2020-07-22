@@ -1,10 +1,8 @@
 // npm install gulp-pngquant --save-dev
-// npm uninstall gulp-pngquant
-// npm install imagemin-pngquant --save-dev
 
 pngquant = require('imagemin-pngquant')
 
-	alfa_center: {
+alfa_center: {
 		port: ++port,
 
 		base: base.alfa_center,
@@ -19,12 +17,8 @@ pngquant = require('imagemin-pngquant')
 
 		scripts: {
 			src: [
-				// 'node_modules/jquery/dist/jquery.min.js',
-				base.alfa_center + '/resources/libs/Magnific-Popup-master/jquery.magnific-popup.js',
-				base.alfa_center + '/resources/libs/lazyload/lazyload.js',
-				base.alfa_center + '/resources/libs/waypoints.min.js',
-				base.alfa_center + '/resources/libs/animate/animate-css.js',
-				// 'node_modules/slick-carousel/slick/slick.min.js',
+				//'node_modules/jquery/dist/jquery.min.js',
+				'node_modules/slick-carousel/slick/slick.min.js',
 				base.alfa_center + '/resources/js/common.js',
 			],
 			dest:       base.alfa_center + '/public/js',
@@ -49,7 +43,7 @@ pngquant = require('imagemin-pngquant')
 			''].join('\n'),
 	},
 
-/* alfa_center BEGIN */
+// Alfa Center
 // Local Server
 function alfa_center_browsersync() {
 	connect.server({
