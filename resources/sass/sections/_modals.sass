@@ -1,13 +1,18 @@
+.mfp-inline-holder .mfp-content
+	height: 100%
 .modal
 	background-color: $white
 	max-width: 400px
 	width: 100%
-	position: fixed
+	position: absolute
 	left: 50%
-	top: 140px
+	top: 120px
+	bottom: auto
 	transform: translateX(-50%)
 	padding: 30px 20px
 	overflow: auto
+	+media-breakpoint-down(sm)
+		top: 100px
 	h2
 		font-size: 22px
 		font-weight: 500

@@ -201,6 +201,7 @@ jQuery(function($) {
 				src: id,
 				type: 'inline',
 				fixedContentPos: true,
+				modal: true,
 				preloader: false
 			}
 		});
