@@ -2,8 +2,25 @@ jQuery(function($) {
 
 	//E-mail Ajax Send
 	$("form").submit(function() { //Change
+
+		Data = new Date();
+		Year = Data.getFullYear();
+		Month = Data.getMonth() + 1;
+		Day = Data.getDate();
+		Hour = Data.getHours();
+		Min = Data.getMinutes();
+		Sec = Data.getSeconds();
+
+		if (Month < 10) {
+			Month = '0'+Month;
+		}else{
+			Month = Month;
+		}
+
 		var th = $(this);
-		var btnSubmit = th.find('button[type="submit"]');
+		var date = th.find('#date');
+		date.val(Day +'.'+ Month +'.'+ Year +' '+ Hour +':'+ Min +':'+ Sec);
+		var btnSubmit = th.find('input[type="submit"]');
 		btnSubmit.attr("disabled", true);
 		var url = window.location.href;
 		var replUrl = url.replace('?', '&');

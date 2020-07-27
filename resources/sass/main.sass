@@ -93,6 +93,10 @@ form
 	&:hover
 		background-color: darken($accent, 3%)
 		color: $white
+	&:focus
+		border: none
+		background-color: $accent
+		box-shadow: 0 3px 0 darken($accent, 10%)
 	&:active
 		background-color: darken($accent, 10%)
 		border-left: none
@@ -117,6 +121,13 @@ form
 	text-align: center
 	opacity: 0
 	animation-delay: .2s
+
+[type="submit"]:disabled
+	background-color: $gray
+	border: none
+	color: $white
+	cursor: not-allowed
+	box-shadow: none
 
 section
 	position: relative
