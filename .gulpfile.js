@@ -24,6 +24,7 @@ pngquant = require('imagemin-pngquant')
 				base.alfa_center + '/resources/libs/lazyload/lazyload.js',
 				base.alfa_center + '/resources/libs/waypoints.min.js',
 				base.alfa_center + '/resources/libs/animate/animate-css.js',
+				base.alfa_center + '/resources/libs/sweetalert.min.js',
 				base.alfa_center + '/resources/js/common.js',
 			],
 			dest:       base.alfa_center + '/public/js',

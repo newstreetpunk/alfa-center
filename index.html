@@ -291,6 +291,8 @@
 		<span class="form-subtitle">Хотите узнать все подробности об услуге? Оставьте свои данные и наш менеджер свяжется с Вами в ближайшее время</span>
 		<form>
 
+			<input type="hidden" name="Форма" id="subject" value="">
+
 			<div class="form-group">
 				<label>Имя</label>
 				<input type="text" name="first-name" placeholder="Ваше имя">
@@ -352,6 +354,7 @@
     		let title = i.previousElementSibling.innerText;
     		let modal = document.getElementById(str);
     		modal.querySelector('h2').innerText = title;
+    		modal.querySelector('#subject').value = 'Узнать цену. ' + title;
     		$.magnificPopup.open({
     			items: {
     				src: id,
