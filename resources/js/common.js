@@ -103,6 +103,8 @@ jQuery(function($) {
 		]
 	});
 
+	$('.reviews__item').animated('fadeInDown', 'fadeInDown');
+
 
 	function customResize(){
 		if ( $(window).width() > 992 ) {
