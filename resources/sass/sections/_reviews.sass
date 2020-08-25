@@ -1,0 +1,40 @@
+.reviews
+	h2
+		margin-bottom: 3vmax
+	&__block
+		.slick-list
+			padding: 20px 0
+	&__item
+		padding: 0 20px
+		outline: none !important
+		color: $gray
+		font-weight: 300
+		blockquote
+			position: relative
+			background-color: #fff
+			box-shadow: 2px 6px 20px -4px rgba(18,34,45,0.2)
+			padding: 20px
+			&:after
+				content: ""
+				position: absolute
+				left: 50px
+				bottom: -15px
+				display: block
+				width: 0
+				height: 0
+				border-style: solid
+				border-width: 15px 15px 0 0
+				border-color: #fff transparent transparent transparent
+				filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.05))
+		&--bottom
+			align-items: center
+			img
+				width: 50px
+				height: 100%
+				margin-right: 20px
+			h4
+				margin-bottom: 0
+				line-height: 1.4
+			small
+				font-size: 14px
+

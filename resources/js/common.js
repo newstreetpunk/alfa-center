@@ -80,6 +80,15 @@ jQuery(function($) {
 	.animated('fadeInRight', 'fadeInRight');
 
 
+	$('.reviews__block').slick({
+		infinite: true,
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		dots: false,
+		arrows: false,
+	});
+
+
 	function customResize(){
 		if ( $(window).width() > 992 ) {
 			h_hght = 30;
