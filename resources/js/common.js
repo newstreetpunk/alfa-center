@@ -3,23 +3,6 @@ jQuery(function($) {
 	//E-mail Ajax Send
 	$("form").submit(function() { //Change
 
-		Data = new Date();
-		Year = Data.getFullYear();
-		Month = Data.getMonth() + 1;
-		Day = Data.getDate();
-		Hour = Data.getHours();
-		Min = Data.getMinutes();
-		Sec = Data.getSeconds();
-
-		if (Month < 10) {
-			Month = '0'+Month;
-		}else{
-			Month = Month;
-		}
-
-		var th = $(this);
-		var date = th.find('#date');
-		date.val(Day +'.'+ Month +'.'+ Year +' '+ Hour +':'+ Min +':'+ Sec);
 		var btnSubmit = th.find('input[type="submit"]');
 		btnSubmit.attr("disabled", true);
 		var url = window.location.href;
@@ -109,7 +92,7 @@ jQuery(function($) {
 	function customResize(){
 		if ( $(window).width() > 992 ) {
 			h_hght = 30;
-			$('#header').css({
+			$('header').css({
 				'top': h_hght,
 				'background-color': 'transparent'
 			});
@@ -118,7 +101,7 @@ jQuery(function($) {
 		}
 		// липкая шапка + background
 		var h_mrg = 0;
-		var elem = $('#header');
+		var elem = $('header');
 		var top = $(this).scrollTop();
 
 		if(top > h_hght){
@@ -149,7 +132,7 @@ jQuery(function($) {
 	// SVG width & height
 	function svgDetect(){
 
-		var block = $('#services'),
+		var block = $('.services'),
 			height = block.height(),
 			winwidth = $(window).width();
 		block.find('svg polygon').attr('points', '0,0 '+ (winwidth / 2)+','+ height+' '+winwidth+', 0');
