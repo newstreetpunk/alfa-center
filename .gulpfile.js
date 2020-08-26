@@ -21,7 +21,7 @@ pngquant = require('imagemin-pngquant')
 			src: [			
 				base.alfa_center + '/resources/libs/jquery/jquery-2.2.4.min.js',
 				base.alfa_center + '/resources/libs/Magnific-Popup-master/jquery.magnific-popup.js',
-				'node_modules/slick-1.8.1/slick/slick.min.js',
+				'node_modules/slick-carousel/slick/slick.min.js',
 				base.alfa_center + '/resources/libs/lazyload/lazyload.js',
 				base.alfa_center + '/resources/libs/waypoints.min.js',
 				base.alfa_center + '/resources/libs/animate/animate-css.js',
