@@ -62,8 +62,11 @@
 	&:before 
 		font-family: inherit
 .slick-dots
-	bottom: initial
 	top: -20px
+	bottom: initial
+	+media-breakpoint-down(sm)
+		top: initial
+		bottom: -40px
 	li
 		margin: 0
 		button
