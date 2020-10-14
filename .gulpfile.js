@@ -220,7 +220,7 @@ function alfa_center_watch() {
 	watch(projects.alfa_center.code.src).on('change', browserSync.reload);
 };
 
-module.exports = parallel(alfa_center_images, alfa_center_styles, alfa_center_scripts, alfa_center_browsersync, alfa_center_watch);
+exports.alfa_center = parallel(alfa_center_images, alfa_center_styles, alfa_center_scripts, alfa_center_browsersync, alfa_center_watch);
 
 /* alfa_center END */
 
