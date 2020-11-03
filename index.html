@@ -438,25 +438,6 @@
 
     <script src="js/scripts.min.js"></script>
 
-    <script>
-    	function modalServ(i){
-    		let id = i.getAttribute('href');
-    		let str = id.replace('#', '');
-    		let title = i.previousElementSibling.innerText;
-    		let modal = document.getElementById(str);
-    		modal.querySelector('h2').innerText = title;
-    		modal.querySelector('#subject').value = 'Узнать цену. ' + title;
-    		$.magnificPopup.open({
-    			items: {
-    				src: id,
-    				type: 'inline',
-    				fixedContentPos: true,
-    				preloader: false
-    			}
-    		});
-    	}
-    </script>
-
 </body>
 
 </html>

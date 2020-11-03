@@ -127,7 +127,8 @@ jQuery(function($) {
 			}
 		});
 
-	}customResize();
+	}
+	customResize();
 
 	// SVG width & height
 	function svgDetect(){
@@ -137,7 +138,8 @@ jQuery(function($) {
 			winwidth = $(window).width();
 		block.find('svg polygon').attr('points', '0,0 '+ (winwidth / 2)+','+ height+' '+winwidth+', 0');
 
-	}svgDetect();
+	}
+	svgDetect();
 
 	function servScroll(){
 		if ( $(window).width() < 768 ) {
@@ -152,7 +154,6 @@ jQuery(function($) {
 		svgDetect();
 	});
 	
-
 	// 
 
 	// Populate images from data attributes.
@@ -203,7 +204,6 @@ jQuery(function($) {
 	}
 	
 	// Услуги 
-
 	$('.services-item').on('click', function(){
 
 		th           = $(this),
@@ -232,13 +232,15 @@ jQuery(function($) {
 					<div class="sub-services__item--img lazyload" style="background-image: url(img/ajax-loader.gif);" data-src-background="img/'+ dir +'/'+ k +'.jpg"></div>\
 					<div class="sub-services__item--info">\
 					<h5>'+ v +'</h5>\
-					<a href="#services_modal" class="btn modal-link" onclick="modalServ(this); return false;">Узнать цену</a>\
+					<a href="#services_modal" class="btn modal-link services_modal">Узнать цену</a>\
 					</div>\
 					</div>\
 					';
 					$('.sub-services').append(out);
 
 				});
+
+				$('.modal-link.services_modal').click(forModalLink);
 
 				$('.sub-services').slideDown();
 				$('.sub-services__item').animated('fadeInUp', 'fadeInUp');
@@ -255,10 +257,22 @@ jQuery(function($) {
 	});
 
 	// MODALS
-
-	$('.modal-link').click(function(){
+	
+	function forModalLink() {
 
 		let id = $(this).attr('href');
+
+		switch(id) {
+			case "#services_modal":
+				let title = $(this).prev().text();
+				let modal = document.querySelector(id);
+				modal.querySelector('h2').innerText = title;
+				modal.querySelector('#subject').value = 'Узнать цену. ' + title;
+				break;
+			default:
+		}
+		
+		if(typeof ymGoal != "undefined") ymGoal('popup-open');
 
 		$.magnificPopup.open({
 
@@ -273,7 +287,9 @@ jQuery(function($) {
 
 		return false;
 
-	});
+	};
+
+	$('.modal-link').click(forModalLink);
 
 	$('a[href="#privacy-policy"]').on('click', function(){
 
