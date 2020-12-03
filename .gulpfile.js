@@ -138,7 +138,7 @@ function alfa_center_styles() {
 // 	.pipe(revAll.versionFile())
 // 	.pipe(dest(projects.alfa_center.styles.dest));
 // };
-// exports.alfa_center_manifest = alfa_center_manifest;
+// exports.hyundai_service_manifest = alfa_center_manifest;
 
 // function alfa_center_version() {
 // 	return src(projects.alfa_center.code.src)
@@ -154,9 +154,9 @@ function alfa_center_styles() {
 //         return file.base;
 //     }));
 // };
-// exports.alfa_center_version = alfa_center_version;
+// exports.hyundai_service_version = alfa_center_version;
 
-exports.alfa_center_versioningCss = () => {
+exports.hyundai_service_versioningCss = () => {
   return src(projects.alfa_center.code.src)
     .pipe(replace(/(.*)\.css\?(v=.+&)*(.*)/g, '$1.css?v='+makeid()+'&$3'))
     .pipe(replace(/(.*)\.css\"(.*)/g, '$1.css?v='+makeid()+'"$2'))
@@ -166,7 +166,7 @@ exports.alfa_center_versioningCss = () => {
     }));
 };
 
-exports.alfa_center_versioningJs = () => {
+exports.hyundai_service_versioningJs = () => {
   return src(projects.alfa_center.code.src)
     .pipe(replace(/(.*)\.js\?(v=.+&)*(.*)/g, '$1.js?v='+makeid()+'&$3'))
     .pipe(replace(/(.*)\.js\"(.*)/g, '$1.js?v='+makeid()+'"$2'))
@@ -176,7 +176,7 @@ exports.alfa_center_versioningJs = () => {
     }));
 };
 
-exports.alfa_center_versioningImage = () => {
+exports.hyundai_service_versioningImage = () => {
   return src(projects.alfa_center.code.src)
     .pipe(replace(/(.*)\.(png|jpg|jpeg|gif)\?(_v=.+&)*(.*)/g, '$1.$2?v='+makeid()+'&$4'))
     .pipe(replace(/(.*)\.(png|jpg|jpeg|gif)\"(.*)/g, '$1.$2?v='+makeid()+'"$3'))
@@ -220,7 +220,7 @@ function alfa_center_watch() {
 	watch(projects.alfa_center.code.src).on('change', browserSync.reload);
 };
 
-exports.alfa_center = parallel(alfa_center_images, alfa_center_styles, alfa_center_scripts, alfa_center_browsersync, alfa_center_watch);
+exports.hyundai_service = parallel(alfa_center_images, alfa_center_styles, alfa_center_scripts, alfa_center_browsersync, alfa_center_watch);
 
 /* alfa_center END */
 
