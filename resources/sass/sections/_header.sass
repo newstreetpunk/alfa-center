@@ -4,24 +4,28 @@
 	font-weight: 500
 	color: $white
 	left: 0
-	padding: 25px 0
+	padding: 15px 0
 	position: fixed
-	top: 30px
+	top: 1px
 	width: 100%
 	transition: all .3s ease
 	z-index: 10000
+	opacity: 0
+	+media-breakpoint-down(xl)
+		.container
+			max-width: 95%
 	+media-breakpoint-down(md)
 		background-color: #222 !important
 		top: 0 !important
-	+media-breakpoint-down(sm)
 		font-size: 16px
+		min-height: 100px
+	+media-breakpoint-down(sm)
 		font-weight: 300
 	+media-breakpoint-down(xs)
 		padding: 15px 0
-		&__wrap
-			flex-direction: column-reverse
-	&__phone, &__address
-		opacity: 0
+	&__wrap
+		+media-breakpoint-down(md)
+			flex-wrap: wrap
 	&-info
 		display: flex
 		align-items: center
@@ -36,19 +40,43 @@
 			margin-right: 8px
 			transition: all .2s ease
 			width: 18px
+		+media-breakpoint-down(md)
+			width: 100%
+			justify-content: flex-end
+			margin-top: 6px
+		+media-breakpoint-down(xs)
+			justify-content: center
+			margin-top: 0
 	&__phone
+		flex: 0 0 320px
+		+media-breakpoint-down(md)
+			flex: 1 0 auto
 		a
 			color: $white
 			+media-breakpoint-down(sm)
 				font-weight: 300
 			&:hover
 				color: $text
+		+media-breakpoint-down(md)
+			order: 3
 	&__address
 		+media-breakpoint-down(xs)
 			font-size: 13px
 			margin-bottom: 10px
-	+media-breakpoint-down(md)
-		top: 0
-	+media-breakpoint-down(xl)
-		.container
-			max-width: 95%
+			order: 2
+	&__logo
+		flex: 0 0 180px
+		+media-breakpoint-down(md)
+			position: absolute
+			left: 2.5%
+			top: 50%
+			transform: translateY(-50%)
+			width: 180px
+		+media-breakpoint-down(xs)
+			flex: 0 0 150px
+			width: 150px
+			position: relative
+			top: 20px
+			left: 0
+			order: 1
+			margin: 0 auto
