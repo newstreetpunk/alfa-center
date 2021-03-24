@@ -200,12 +200,13 @@ function alfa_center_scripts() {
 function alfa_center_images() {
 	return src(projects.alfa_center.images.src)
 	.pipe(newer(projects.alfa_center.images.dest))
-	.pipe(imagemin([
-            pngquant(),            
-        ],{
-            verbose: true
-        }))
+	// .pipe(imagemin([
+ //            pngquant(),            
+ //        ],{
+ //            verbose: true
+ //        }))
 	.pipe(dest(projects.alfa_center.images.dest))
+	.pipe(browserSync.stream())
 }
 
 function alfa_center_cleanimg() {

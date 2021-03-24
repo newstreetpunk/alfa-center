@@ -51,20 +51,20 @@ jQuery(function($) {
 		return false;
 	});
 
-	$('h1').animated('fadeInDown', 'fadeInDown');
+	$('h1, .header').animated('fadeInDown', 'fadeInDown');
 
 	$('.banner__subtitle, section h2, .services-block, .callback-section, section .sect-subtitle, .btn-wrap, .brands')
 	.animated('fadeInUp', 'fadeInUp');
 
-	$('.header__phone, .banner__discount-list, .advantages-item:nth-child(odd)')
+	$('.banner__discount-list, .advantages-item:nth-child(odd)')
 	.animated('fadeInLeft', 'fadeInLeft');
 
-	$('.header__address, .banner__form, .advantages-item:nth-child(even)')
+	$('.banner__form, .advantages-item:nth-child(even)')
 	.animated('fadeInRight', 'fadeInRight');
 
 
 	$('.reviews__block').slick({
-		infinite: true,
+		infinite: false,
 		slidesToShow: 3,
 		slidesToScroll: 1,
 		dots: true,
@@ -91,7 +91,7 @@ jQuery(function($) {
 
 	function customResize(){
 		if ( $(window).width() > 992 ) {
-			h_hght = 30;
+			h_hght = 1;
 			$('header').css({
 				'top': h_hght,
 				'background-color': 'transparent'
