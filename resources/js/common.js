@@ -64,7 +64,7 @@ jQuery(function($) {
 
 
 	$('.reviews__block').slick({
-		infinite: true,
+		infinite: false,
 		slidesToShow: 3,
 		slidesToScroll: 1,
 		dots: true,
